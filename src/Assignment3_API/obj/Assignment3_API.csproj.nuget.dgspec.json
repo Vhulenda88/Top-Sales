@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\UP\\Teaching\\2022\\Courses\\INF354\\Assignments\\Assignment 3_Me\\Content to use\\Assignment3_API\\Assignment3_API.csproj": {}
+    "C:\\Users\\vhule\\OneDrive\\Desktop\\ThirdYear\\FirstSemester\\INF354\\Assignments\\HW03\\Top-Sales\\src\\Assignment3_API\\Assignment3_API.csproj": {}
   },
   "projects": {
-    "D:\\UP\\Teaching\\2022\\Courses\\INF354\\Assignments\\Assignment 3_Me\\Content to use\\Assignment3_API\\Assignment3_API.csproj": {
+    "C:\\Users\\vhule\\OneDrive\\Desktop\\ThirdYear\\FirstSemester\\INF354\\Assignments\\HW03\\Top-Sales\\src\\Assignment3_API\\Assignment3_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\UP\\Teaching\\2022\\Courses\\INF354\\Assignments\\Assignment 3_Me\\Content to use\\Assignment3_API\\Assignment3_API.csproj",
+        "projectUniqueName": "C:\\Users\\vhule\\OneDrive\\Desktop\\ThirdYear\\FirstSemester\\INF354\\Assignments\\HW03\\Top-Sales\\src\\Assignment3_API\\Assignment3_API.csproj",
         "projectName": "Assignment3_API",
-        "projectPath": "D:\\UP\\Teaching\\2022\\Courses\\INF354\\Assignments\\Assignment 3_Me\\Content to use\\Assignment3_API\\Assignment3_API.csproj",
-        "packagesPath": "C:\\Users\\u05121257\\.nuget\\packages\\",
-        "outputPath": "D:\\UP\\Teaching\\2022\\Courses\\INF354\\Assignments\\Assignment 3_Me\\Content to use\\Assignment3_API\\obj\\",
+        "projectPath": "C:\\Users\\vhule\\OneDrive\\Desktop\\ThirdYear\\FirstSemester\\INF354\\Assignments\\HW03\\Top-Sales\\src\\Assignment3_API\\Assignment3_API.csproj",
+        "packagesPath": "C:\\Users\\vhule\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vhule\\OneDrive\\Desktop\\ThirdYear\\FirstSemester\\INF354\\Assignments\\HW03\\Top-Sales\\src\\Assignment3_API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\u05121257\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vhule\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.16, )"
@@ -53,6 +61,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.16, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -69,6 +89,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x86",
+              "version": "[5.0.17, 5.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -77,7 +115,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

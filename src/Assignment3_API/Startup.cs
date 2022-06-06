@@ -1,17 +1,21 @@
+using Assignment3_API.Factory;
 using Assignment3_API.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Assignment3_API
@@ -28,6 +32,37 @@ namespace Assignment3_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+              options.Password.RequireUppercase = true;
+              options.Password.RequireLowercase = true;
+              options.Password.RequireNonAlphanumeric = false;
+              options.Password.RequireDigit = true;
+              options.User.RequireUniqueEmail = true;
+            })
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddAuthentication()
+                .AddCookie()
+                .AddJwtBearer(options =>
+                {
+                  options.TokenValidationParameters = new TokenValidationParameters()
+                  {
+                    ValidIssuer = Configuration["Tokens:Issuer"],
+                    ValidAudience = Configuration["Tokens:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:Key"]))
+                  };
+                });
+
+            services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, AppUserClaimsPrincipleFactory>();
+
+            services.Configure<DataProtectionTokenProviderOptions>(options =>
+            {
+              options.TokenLifespan = TimeSpan.FromHours(5);
+            });
+
             services.AddCors(options => options.AddDefaultPolicy(
                 include =>
                 {
@@ -35,6 +70,8 @@ namespace Assignment3_API
                     include.AllowAnyMethod();
                     include.AllowAnyOrigin();
                 }));
+
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -44,6 +81,7 @@ namespace Assignment3_API
 
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IProductsRepository, ProductsRepository>(); // dependacy injection
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,17 @@
+<div class="card mt-5 position-absolute top-0 start-50 translate-middle-x shadow p-3 bg-body rounded" style="width: 20rem;">
+    <h4 class="card-title mb-3">Log In</h4>
+    <form class="form">
+        <div class="mb-3">
+            <label for="Username" class="form-label">Username</label>
+            <input type="text" name="Username" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <input type="text" name="Password" class="form-control" >
+        </div>
+        <button type="submit" class="btn btn-outline-primary ">Log in</button> <br/>
+        <span >Don't have an account? Register <a [routerLink]="['./register']">here</a></span>
+    </form>
+</div>
+
+
